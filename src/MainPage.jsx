@@ -181,6 +181,9 @@ function MainPage() {
                 if (this.readyState == 4 && this.status == 200) {
                     console.log(this.responseText);
                     devices = JSON.parse(this.responseText);
+                    if(devices == null){
+                        return;
+                    }
                     setRelays([...devices])
                 }
             }

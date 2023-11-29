@@ -10,8 +10,9 @@
 
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 32 // OLED display height, in pixels
+String displayMsg = "0";
+unsigned int requestsCount = 0;
 
-short relayPin = 14;
 bool relayStatus = 0;
 
 // Declaration for an SSD1306 display connected to I2C (SDA, SCL pins)
@@ -29,14 +30,13 @@ const char *password = "P4npYfYS";
 
 AsyncWebServer server(80);
 
-//DynamicJsonDocument relaysJSON(1024);
+//JSON that stores relays/devices data
 StaticJsonDocument<400> relaysJSON;
+
 
 void setup() {
 
   Serial.begin(115200);
-
-  pinMode(relayPin, OUTPUT);
 
   // Initialize SPIFFS
   if(!SPIFFS.begin()){
@@ -44,6 +44,7 @@ void setup() {
     return;
   }
 
+  //Initialize display
   if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) { // Address 0x3D for 128x64
     Serial.println(F("SSD1306 allocation failed"));
     for(;;);
@@ -62,6 +63,7 @@ void setup() {
     display.println("STA Failed to configure!");
     display.display();
   }
+  
   Serial.println();
   Serial.println("Connecting to ");
   Serial.println(ssid);
@@ -81,7 +83,7 @@ void setup() {
   }
   Serial.println("");
   Serial.println("WiFi connected..!");
-  // Print ESP32 Local IP Address
+  // Print ESP Local IP Address
   Serial.println(WiFi.localIP());
 
   display.println("");
@@ -92,7 +94,6 @@ void setup() {
  // Route for root / web page
   server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
     request->send(SPIFFS, "/index.html", String(), false);
-//    request->send(200, "text/plain", "hello");
   });
 
   // Route to load style.css file
@@ -133,9 +134,11 @@ void setup() {
   server.on("/sunny-c059fc74.svg", HTTP_GET, [](AsyncWebServerRequest *request){
     request->send(SPIFFS, "/sunny-c059fc74.svg");
   });
-  
+
+  //Relays data request from server webpage
   server.on("/getRelaysData", HTTP_GET, handle_getRelaysData);
-  
+
+  //Receive relay data from another ESP device
   server.on("/updateRelays", HTTP_GET, handle_updateRelays);
 
   server.begin();
@@ -148,61 +151,65 @@ void setup() {
 }
 
 void loop() {
+  if(displayMsg == "0"){
+    return;
+  }
   
-//  if(millis()-timer >= 5000){
-////    sendSensorData();
-//    relayStatus = !relayStatus
-//    timer = millis();
-//  }
-//  
-//  display.clearDisplay();
-//  display.setTextSize(1);
-//  display.setTextColor(WHITE);
-//  display.setCursor(0, 10);
-//  Display static text
-//  display.println("I found asylum inside");
-//  display.display();
-//  delay(3000);
-//  display.println("your armageddon eyes");
-//  display.display();
-//  delay(3000);
-//  display.clearDisplay();
-//  display.setCursor(0, 10);
-//  display.println("I'd kill to kiss your apocalypse");
-//  display.display();
-//  delay(1000);
-  
+  if(displayMsg == "deviceRequestMsg"){
+    display.clearDisplay();
+    display.setCursor(0, 5);
+    display.println("Server is running");
+    display.println("- Hadling device request...");
+    display.display();
+    return;
+  }
+
+  if(displayMsg == "webpageRequestMsg"){
+    display.clearDisplay();
+    display.setCursor(0, 5);
+    display.println("Server is running");
+    display.print("- Handling webpage request...");
+    display.print("(" + String(requestsCount) + " call(s))");
+    display.display();
+    return;
+  }
 }
 
 void handle_updateRelays(AsyncWebServerRequest *request){
 
-  Serial.print("Hadling request...");
-  String receivedRelay = "{}";
+  Serial.print("Hadling device request...");
+  
+  displayMsg = "deviceRequestMsg";
+  
+  String relayData = "";
 
   if (request->hasParam("relayData")){
-    receivedRelay = request->arg("relayData");
+    relayData = request->arg("relayData");
   }
-  Serial.print("Received value:");
-  Serial.println(receivedRelay);
-
-  DynamicJsonDocument newRelay(1024);
-  deserializeJson(newRelay, receivedRelay);
-  String relayIP = newRelay["relay_ip"];
   
+  Serial.print("Received value:");
+  Serial.println(relayData);
+
+  //Pull IP adress from received device with JSON
+  DynamicJsonDocument receivedRelay(1024);
+  deserializeJson(receivedRelay, relayData);
+  String relayIP = receivedRelay["relay_ip"];
+
+  //Find out if we alreadyhave device with this IP adress
   const char* hasRelay = relaysJSON[{}]["relay_ip"];
   
   if (String(hasRelay) == relayIP) {
     Serial.println("Already contains relay with ip: " + String(hasRelay) + ", returning...");
     return;
   }
-  
+
+  //Put new received relay data in JSON object
   JsonObject relay  = relaysJSON.createNestedObject();
-  relay["relay_ip"] = newRelay["relay_ip"];
-  relay["relay_name"] = newRelay["relay_name"];
-  relay["relay_status"] = newRelay["relay_status"];
+  relay["relay_ip"] = receivedRelay["relay_ip"];
+  relay["relay_name"] = receivedRelay["relay_name"];
+  relay["relay_status"] = receivedRelay["relay_status"];
   serializeJson(relaysJSON, Serial);
   Serial.println();
-
 
   request->send(200, "text/plain", "ok");  
 }
@@ -210,34 +217,20 @@ void handle_updateRelays(AsyncWebServerRequest *request){
 
 void handle_getRelaysData(AsyncWebServerRequest *request){
 
-//  display.clearDisplay();
-//  display.setCursor(0, 5);
-//  display.setTextSize(1);
-//  display.setTextColor(WHITE);
-//  display.println("Server started!");
-//  display.println("Sending new status...!");
-//  display.display();
+  Serial.println("Handling webpage data request...");
+  serializeJson(relaysJSON, Serial);
+  Serial.println();
+
+  displayMsg = "webpageRequestMsg";
   
-//  String receivedData = "[{\"relay_name\": \"lights\", \"relay_status\": " + String(relayStatus) + ", \"relay_ip\": \"192.168.0.101\"}]";
   String receivedData = "";
   serializeJson(relaysJSON, receivedData);
-
-//  Serial.println(request->url());
-//  if (request->hasParam("relay_data")){
-//    receivedData = request->arg("relay_data");
-//  }
-//  Serial.print("Received relay data:");
-//  Serial.println(receivedData);
-
-//  int value = receivedValue.toInt()
-
-//  digitalWrite(relayPin, receivedValue.toInt());
-//  if(relayPin == 1){
-//    
-//  }
   
   request->send(200, "text/plain", receivedData);
   
+  requestsCount++;
+  
 }
+
 
 //http://192.168.0.101/relaySwitch/?button_reading=0
