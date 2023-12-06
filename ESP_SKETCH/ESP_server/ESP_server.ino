@@ -208,6 +208,7 @@ void handle_updateRelays(AsyncWebServerRequest *request){
   relay["relay_ip"] = receivedRelay["relay_ip"];
   relay["relay_name"] = receivedRelay["relay_name"];
   relay["relay_status"] = receivedRelay["relay_status"];
+//  Serial.print("JSON object: ");
   serializeJson(relaysJSON, Serial);
   Serial.println();
 

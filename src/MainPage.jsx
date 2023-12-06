@@ -95,6 +95,7 @@ function Relay (props){
     function sendRelayStatus(){
         console.log("Sending status to: " + relay_ip);
         let url = "http://" + relay_ip + "/relaySwitch/?button_reading=" + Number(!status);
+        console.log(url);
         // let statusWindow = window.open(url, "", "popup");
         // setTimeout(() => statusWindow.close(), 300);
         // setStatus(!status);
@@ -126,7 +127,7 @@ function Relay (props){
             <img className="relay__icon" src={lights__icon} alt="relay__icon" />
 
             <label className="relay__switch">
-
+                
                 {status == 1 ? <input type="checkbox" checked onChange={() => sendRelayStatus()} /> : <input type="checkbox" onChange={() => sendRelayStatus()} />}
 
                 <span className="slider"></span>

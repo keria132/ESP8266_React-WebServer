@@ -1,54 +1,7 @@
-<svg width="128" height="130" viewBox="0 0 128 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_dd_51_146)">
-<path d="M52 96V110C52 114.418 55.5817 118 60 118H68C72.4183 118 76 114.418 76 110V96H52Z" fill="url(#paint0_linear_51_146)"/>
-<path d="M87.3876 65.3386C83.4414 69.6253 80.0286 74.8103 80.0286 80.6368V86L47.9714 86V80.6368C47.9714 74.8103 44.5586 69.6253 40.6124 65.3386C34.6718 58.8853 31 49.7253 31 40.7174C31 22.6481 45.7746 8 64 8C82.2254 8 97 22.6481 97 40.7174C97 49.7253 93.3282 58.8853 87.3876 65.3386Z" fill="url(#paint1_linear_51_146)"/>
-<g filter="url(#filter1_dd_51_146)">
-<path d="M48 86H80V92C80 94.2091 78.2091 96 76 96H52C49.7909 96 48 94.2091 48 92V86Z" fill="url(#paint2_linear_51_146)"/>
-</g>
-<path d="M52 108H76V110H52V108Z" fill="#636363"/>
-<path d="M52 101H76V103H52V101Z" fill="#636363"/>
-<path d="M71 32C71 40.8366 63.8366 48 55 48C46.1634 48 39 40.8366 39 32C39 23.1634 46.1634 16 55 16C63.8366 16 71 23.1634 71 32Z" fill="#FFEF5F"/>
-</g>
-<defs>
-<filter id="filter0_dd_51_146" x="-6" y="-4" width="144" height="144" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dx="2" dy="4"/>
-<feGaussianBlur stdDeviation="4"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_51_146"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dy="2"/>
-<feGaussianBlur stdDeviation="2"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"/>
-<feBlend mode="normal" in2="effect1_dropShadow_51_146" result="effect2_dropShadow_51_146"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_51_146" result="shape"/>
-</filter>
-<filter id="filter1_dd_51_146" x="46" y="85" width="36" height="14" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dy="1"/>
-<feGaussianBlur stdDeviation="0.5"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_51_146"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dy="1"/>
-<feGaussianBlur stdDeviation="1"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
-<feBlend mode="normal" in2="effect1_dropShadow_51_146" result="effect2_dropShadow_51_146"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_51_146" result="shape"/>
-</filter>
-<linearGradient id="paint0_linear_51_146" x1="64" y1="96" x2="64" y2="118" gradientUnits="userSpaceOnUse">
-<stop stop-color="#6B6B6B"/>
-<stop offset="1" stop-color="#807C7C"/>
-</linearGradient>
-<linearGradient id="paint1_linear_51_146" x1="64" y1="8" x2="64" y2="85.8095" gradientUnits="userSpaceOnUse">
-<stop stop-color="#FFAF37"/>
-<stop offset="1" stop-color="#FEF861"/>
-</linearGradient>
-<linearGradient id="paint2_linear_51_146" x1="64" y1="86" x2="64" y2="96" gradientUnits="userSpaceOnUse">
-<stop stop-color="#B4B4B4"/>
-<stop offset="1" stop-color="#A1A1A1"/>
-</linearGradient>
-</defs>
-</svg>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
+<svg width="800px" height="800px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
+<g id="SVGRepo_bgCarrier" stroke-width="0"/>
+<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+<g id="SVGRepo_iconCarrier"> <!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools --> <title>ic_fluent_wifi_1_24_filled</title> <desc>Created with Sketch.</desc> <g id="🔍-Product-Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="ic_fluent_wifi_1_24_filled" fill="#ebf8ff" fill-rule="nonzero"> <path d="M17.784031,10.7082809 C18.3804167,11.3046665 18.8953441,12.0261485 19.2876542,12.793163 C19.5391477,13.2848636 19.3444213,13.8873414 18.8527207,14.1388349 C18.3610201,14.3903283 17.7585423,14.195602 17.5070488,13.7039014 C17.2071759,13.117613 16.81389,12.5665669 16.3698175,12.1224944 C13.9766966,9.7293736 10.0966811,9.7293736 7.70356029,12.1224944 C7.23849417,12.5875606 6.86105139,13.1099877 6.57033996,13.6847288 C6.32106159,14.1775561 5.71946609,14.3749915 5.2266388,14.1257131 C4.73381151,13.8764348 4.53637609,13.2748393 4.78565446,12.782012 C5.17162735,12.0189374 5.67390745,11.3237202 6.28934673,10.7082809 C9.46351616,7.53411145 14.6098616,7.53411145 17.784031,10.7082809 Z M15.7350847,13.6998425 C16.1956963,14.1604541 16.5733861,14.7242956 16.8363401,15.32437 C17.0580043,15.8302191 16.8276269,16.4199853 16.3217778,16.6416496 C15.8159286,16.8633139 15.2261624,16.6329365 15.0044981,16.1270873 C14.8391506,15.7497558 14.6009124,15.3940974 14.3208711,15.114056 C13.0584598,13.8516448 11.0116867,13.8516448 9.74927543,15.114056 C9.47102679,15.3923047 9.24396535,15.7329193 9.07709426,16.1142869 C8.85570282,16.6202556 8.26606096,16.850951 7.76009232,16.6295596 C7.25412367,16.4081681 7.02342826,15.8185263 7.2448197,15.3125576 C7.50884984,14.7091424 7.87495319,14.1599512 8.33506186,13.6998425 C10.3785217,11.6563826 13.6916248,11.6563826 15.7350847,13.6998425 Z M20.4191567,8.29865455 C20.9271565,8.80665436 21.4060586,9.38612154 21.8229808,9.99020496 C22.1366906,10.4447428 22.0225269,11.0675305 21.5679891,11.3812403 C21.1134513,11.6949501 20.4906635,11.5807864 20.1769538,11.1262486 C19.8272524,10.6195622 19.4254027,10.1333277 19.0049431,9.71286812 C15.1326336,5.84055855 8.85437929,5.84055855 4.98206972,9.71286812 C4.58289591,10.1120419 4.18505451,10.5985093 3.82160956,11.1224039 C3.50680535,11.5761844 2.88374432,11.688847 2.42996381,11.3740428 C1.9761833,11.0592386 1.86352076,10.4361775 2.17832497,9.98239703 C2.60633385,9.36543551 3.0788391,8.78767161 3.56785616,8.29865455 C8.22121431,3.6452964 15.7657986,3.6452964 20.4191567,8.29865455 Z M13.0614,16.4412095 C13.647595,17.0274045 13.647595,17.9778144 13.0614,18.5640095 C12.475205,19.1502045 11.524795,19.1502045 10.9386,18.5640095 C10.352405,17.9778144 10.352405,17.0274045 10.9386,16.4412095 C11.524795,15.8550144 12.475205,15.8550144 13.0614,16.4412095 Z" id="🎨-Color"> </path> </g> </g> </g>
+</svg>

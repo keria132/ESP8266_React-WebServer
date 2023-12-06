@@ -27,6 +27,7 @@ void setup() {
   Serial.begin(115200);
 
   pinMode(relayPin, OUTPUT);
+  digitalWrite(relayPin, relayStatus.toInt());
 
   delay(2000);
 
@@ -58,7 +59,7 @@ void setup() {
   DefaultHeaders::Instance().addHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Access-Control-Allow-Origin, Content-Type, Authorization, X-Requested-With");
   server.begin();
   
-  send_request();
+//  send_request();
 
 }
 
